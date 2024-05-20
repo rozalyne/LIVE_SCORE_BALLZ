@@ -53,9 +53,19 @@ class LiveScoreScreen extends StatelessWidget {
                     Text('Juventus'),
                   ],
                 ),
-                Text(
-                  '1 : 0',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                    children: [
+                      TextSpan(
+                          text: '1', style: TextStyle(color: Colors.green)),
+                      TextSpan(text: ' : '),
+                      TextSpan(text: '0'),
+                    ],
+                  ),
                 ),
                 Column(
                   children: [
@@ -120,14 +130,27 @@ class StatsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final juvStatValue = int.tryParse(juvStat) ?? 0;
+    final psgStatValue = int.tryParse(psgStat) ?? 0;
+
+    TextStyle defaultStyle = TextStyle(fontSize: 16);
+    TextStyle winningStyle = TextStyle(
+        fontSize: 18, color: Colors.green, fontWeight: FontWeight.bold);
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(juvStat),
+          Text(
+            juvStat,
+            style: juvStatValue > psgStatValue ? winningStyle : defaultStyle,
+          ),
           Text(statName),
-          Text(psgStat),
+          Text(
+            psgStat,
+            style: psgStatValue > juvStatValue ? winningStyle : defaultStyle,
+          ),
         ],
       ),
     );
