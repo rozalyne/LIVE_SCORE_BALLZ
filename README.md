@@ -5,13 +5,15 @@ Sure, here's the README.md file with the entire code combined:
 
 ## Description
 
-This Flutter project, **#livescoreball**, is developed as a campus assignment. The aim is to create a live score tracking app for sports enthusiasts.
+This Flutter project, **#livescoreball**, is developed as a campus assignment.
+The aim is to create a live score tracking app for sports enthusiasts.
 
 ## Getting Started
 
 ### Prerequisites
 
-Before running the app, ensure you have Flutter installed. For installation instructions, refer to the [official Flutter documentation](https://flutter.dev/docs/get-started/install).
+Before running the app, ensure you have Flutter installed. For installation instructions,
+refer to the [official Flutter documentation](https://flutter.dev/docs/get-started/install).
 
 ### Installation
 
