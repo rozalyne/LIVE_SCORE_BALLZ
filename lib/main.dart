@@ -99,7 +99,7 @@ class LiveScoreApp extends StatelessWidget {
                             child: Text('Live'),
                             style: OutlinedButton.styleFrom(
                               side: BorderSide(color: Colors.green),
-                              primary: Colors.green,
+                              foregroundColor: Colors.green,
                             ),
                           ),
                         ],
