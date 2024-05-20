@@ -1,8 +1,12 @@
 # livescoreball
 
 A new Flutter project.
+Tugas Kampus
 
 ## Getting Started
+
+run "flutter pub outdated"
+run without debugging
 
 This project is a starting point for a Flutter application.
 
