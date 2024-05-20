@@ -122,15 +122,15 @@ class _MatchListScreenState extends State<MatchListScreen> {
                 Icon(Icons.arrow_forward),
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 1),
             Expanded(
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
                     FinishedMatchCard(
-                      league: 'Champions League',
-                      date: 'Yesterday',
+                      league: 'Champions League ',
+                      date: 'Kemarin',
                       team1Logo: 'assets/images/juventus.png',
                       team2Logo: 'assets/images/psg.png',
                       score: '1 : 0',
