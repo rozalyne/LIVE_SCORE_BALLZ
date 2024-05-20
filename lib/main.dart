@@ -67,7 +67,7 @@ class _MatchListScreenState extends State<MatchListScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Premiere League', style: TextStyle(fontSize: 16)),
+                        Text('Premier League', style: TextStyle(fontSize: 16)),
                         Text("78'",
                             style: TextStyle(fontSize: 16, color: Colors.red)),
                       ],
@@ -76,17 +76,25 @@ class _MatchListScreenState extends State<MatchListScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.network(
-                            'https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Arsenal_FC.svg/1200px-Arsenal_FC.svg.png',
-                            height: 40),
+                        Image.asset('assets/images/arsenal.png', height: 40),
                         SizedBox(width: 20),
-                        Text('2 : 1',
+                        RichText(
+                          text: TextSpan(
                             style: TextStyle(
-                                fontSize: 24, fontWeight: FontWeight.bold)),
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
+                            children: [
+                              TextSpan(
+                                  text: '2',
+                                  style: TextStyle(color: Colors.green)),
+                              TextSpan(text: ' : '),
+                              TextSpan(text: '1'),
+                            ],
+                          ),
+                        ),
                         SizedBox(width: 20),
-                        Image.network(
-                            'https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/Chelsea_FC.svg/1200px-Chelsea_FC.svg.png',
-                            height: 40),
+                        Image.asset('assets/images/chelsea.png', height: 40),
                       ],
                     ),
                     SizedBox(height: 10),
@@ -115,31 +123,29 @@ class _MatchListScreenState extends State<MatchListScreen> {
               ],
             ),
             SizedBox(height: 10),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  FinishedMatchCard(
-                    league: 'Champions League',
-                    date: 'Yesterday',
-                    team1Logo:
-                        'https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Juventus_Turin.svg/1200px-Juventus_Turin.svg.png',
-                    team2Logo:
-                        'https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Paris_Saint-Germain_F.C..svg/1200px-Paris_Saint-Germain_F.C..svg.png',
-                    score: '1 : 0',
-                  ),
-                  SizedBox(width: 10),
-                  FinishedMatchCard(
-                    league: 'League B',
-                    date: '15 July 2020',
-                    team1Logo:
-                        'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/FC_Bayern_München_logo_%282017%29.svg/1024px-FC_Bayern_München_logo_%282017%29.svg.png',
-                    team2Logo:
-                        'https://upload.wikimedia.org/wikipedia/en/thumb/d/d8/Borussia_Dortmund_logo.svg/1200px-Borussia_Dortmund_logo.svg.png',
-                    score: '0 : 0',
-                  ),
-                  // Tambahkan kartu lain di sini jika diperlukan
-                ],
+            Expanded(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    FinishedMatchCard(
+                      league: 'Champions League',
+                      date: 'Yesterday',
+                      team1Logo: 'assets/images/juventus.png',
+                      team2Logo: 'assets/images/psg.png',
+                      score: '1 : 0',
+                    ),
+                    SizedBox(width: 10),
+                    FinishedMatchCard(
+                      league: 'League B',
+                      date: '15 July 2020',
+                      team1Logo: 'assets/images/bayern.png',
+                      team2Logo: 'assets/images/dortmund.png',
+                      score: '0 : 0',
+                    ),
+                    // Add more cards here if needed
+                  ],
+                ),
               ),
             ),
           ],
@@ -186,6 +192,10 @@ class FinishedMatchCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> scores = score.split(' : ');
+    int team1Score = int.parse(scores[0]);
+    int team2Score = int.parse(scores[1]);
+
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
@@ -205,13 +215,33 @@ class FinishedMatchCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.network(team1Logo, height: 40),
+                Image.asset(team1Logo, height: 40),
                 SizedBox(width: 20),
-                Text(score,
-                    style:
-                        TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                    children: [
+                      TextSpan(
+                          text: scores[0],
+                          style: TextStyle(
+                              color: team1Score > team2Score
+                                  ? Colors.green
+                                  : Colors.black)),
+                      TextSpan(text: ' : '),
+                      TextSpan(
+                          text: scores[1],
+                          style: TextStyle(
+                              color: team2Score > team1Score
+                                  ? Colors.green
+                                  : Colors.black)),
+                    ],
+                  ),
+                ),
                 SizedBox(width: 20),
-                Image.network(team2Logo, height: 40),
+                Image.asset(team2Logo, height: 40),
               ],
             ),
           ],
