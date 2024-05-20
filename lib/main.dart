@@ -1,225 +1,168 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(LiveScoreApp());
+  runApp(MyApp());
 }
 
-class LiveScoreApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.grey[200],
-        body: SafeArea(
-          child: ListView(
-            children: [
-              // User Greeting Section
-              Padding(
+      title: 'Football Match App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MatchListScreen(),
+    );
+  }
+}
+
+class MatchListScreen extends StatefulWidget {
+  @override
+  _MatchListScreenState createState() => _MatchListScreenState();
+}
+
+class _MatchListScreenState extends State<MatchListScreen> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 40), // For status bar padding
+            Text('Glad to see you,', style: TextStyle(fontSize: 16)),
+            Text('Esther Howard!',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+            SizedBox(height: 20),
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Find your favorite club',
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                prefixIcon: Icon(Icons.search),
+              ),
+            ),
+            SizedBox(height: 20),
+            Text('Live Match',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            SizedBox(height: 10),
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Glad to see you,', style: TextStyle(fontSize: 18)),
-                    SizedBox(height: 4),
-                    Text('Esther Howard!',
-                        style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.bold)),
-                    SizedBox(height: 16),
-                    TextField(
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.search),
-                        hintText: 'Find your favorite club',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide.none,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Premiere League', style: TextStyle(fontSize: 16)),
+                        Text("78'",
+                            style: TextStyle(fontSize: 16, color: Colors.red)),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.network(
+                            'https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Arsenal_FC.svg/1200px-Arsenal_FC.svg.png',
+                            height: 40),
+                        SizedBox(width: 20),
+                        Text('2 : 1',
+                            style: TextStyle(
+                                fontSize: 24, fontWeight: FontWeight.bold)),
+                        SizedBox(width: 20),
+                        Image.network(
+                            'https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/Chelsea_FC.svg/1200px-Chelsea_FC.svg.png',
+                            height: 40),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Text('Live'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
                         ),
-                        filled: true,
-                        fillColor: Colors.white,
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                  ],
-                ),
-              ),
-              // Live Match Section
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Live Match',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold)),
-                    SizedBox(height: 8),
-                    Container(
-                      padding: EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('Premiere League',
-                                  style: TextStyle(fontSize: 16)),
-                              Text('78\'',
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.red)),
-                            ],
-                          ),
-                          SizedBox(height: 8),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Image.network('https://via.placeholder.com/50',
-                                  height: 50),
-                              Text('2',
-                                  style: TextStyle(
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold)),
-                              Text(':',
-                                  style: TextStyle(
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold)),
-                              Text('1',
-                                  style: TextStyle(
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold)),
-                              Image.network('https://via.placeholder.com/50',
-                                  height: 50),
-                            ],
-                          ),
-                          SizedBox(height: 8),
-                          OutlinedButton(
-                            onPressed: () {},
-                            child: Text('Live'),
-                            style: OutlinedButton.styleFrom(
-                              side: BorderSide(color: Colors.green),
-                              foregroundColor: Colors.green,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                  ],
-                ),
-              ),
-              // Finished Matches Section
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Finished Match',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold)),
-                    SizedBox(height: 8),
-                    Container(
-                      padding: EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Column(
-                        children: [
-                          FinishedMatchCard(
-                            league: 'Champions League',
-                            date: 'Yesterday',
-                            team1: 'Juventus',
-                            team2: 'Paris S-G',
-                            score1: '1',
-                            score2: '0',
-                            imageUrl1: 'https://via.placeholder.com/50',
-                            imageUrl2: 'https://via.placeholder.com/50',
-                          ),
-                          Divider(),
-                          FinishedMatchCard(
-                            league: 'League B',
-                            date: '15 July 2020',
-                            team1: 'Bayern',
-                            team2: 'Dortmund',
-                            score1: '0',
-                            score2: '2',
-                            imageUrl1: 'https://via.placeholder.com/50',
-                            imageUrl2: 'https://via.placeholder.com/50',
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                  ],
-                ),
-              ),
-              // Match Stats Section
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Champions League',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold)),
-                    SizedBox(height: 8),
-                    Container(
-                      padding: EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('Juventus', style: TextStyle(fontSize: 16)),
-                              Text('1 : 0', style: TextStyle(fontSize: 16)),
-                              Text('Paris S-G', style: TextStyle(fontSize: 16)),
-                            ],
-                          ),
-                          SizedBox(height: 16),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              CircleAvatar(
-                                backgroundImage: NetworkImage(
-                                    'https://via.placeholder.com/50'),
-                              ),
-                              Text('Top Player',
-                                  style: TextStyle(fontSize: 16)),
-                              Text('Paulo Dybala',
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold)),
-                            ],
-                          ),
-                          SizedBox(height: 16),
-                          MatchStats(
-                            stat1: '11',
-                            stat2: '14',
-                            label: 'Total Shots',
-                          ),
-                          MatchStats(
-                            stat1: '4',
-                            stat2: '2',
-                            label: 'Shots on Target',
-                          ),
-                          MatchStats(
-                            stat1: '64',
-                            stat2: '36',
-                            label: 'Possession',
-                          ),
-                        ],
                       ),
                     ),
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Finished Match',
+                    style:
+                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                Icon(Icons.arrow_forward),
+              ],
+            ),
+            SizedBox(height: 10),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  FinishedMatchCard(
+                    league: 'Champions League',
+                    date: 'Yesterday',
+                    team1Logo:
+                        'https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Juventus_Turin.svg/1200px-Juventus_Turin.svg.png',
+                    team2Logo:
+                        'https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Paris_Saint-Germain_F.C..svg/1200px-Paris_Saint-Germain_F.C..svg.png',
+                    score: '1 : 0',
+                  ),
+                  SizedBox(width: 10),
+                  FinishedMatchCard(
+                    league: 'League B',
+                    date: '15 July 2020',
+                    team1Logo:
+                        'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/FC_Bayern_München_logo_%282017%29.svg/1024px-FC_Bayern_München_logo_%282017%29.svg.png',
+                    team2Logo:
+                        'https://upload.wikimedia.org/wikipedia/en/thumb/d/d8/Borussia_Dortmund_logo.svg/1200px-Borussia_Dortmund_logo.svg.png',
+                    score: '0 : 0',
+                  ),
+                  // Tambahkan kartu lain di sini jika diperlukan
+                ],
+              ),
+            ),
+          ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: 'Notifications',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue,
+        onTap: _onItemTapped,
       ),
     );
   }
@@ -228,72 +171,51 @@ class LiveScoreApp extends StatelessWidget {
 class FinishedMatchCard extends StatelessWidget {
   final String league;
   final String date;
-  final String team1;
-  final String team2;
-  final String score1;
-  final String score2;
-  final String imageUrl1;
-  final String imageUrl2;
+  final String team1Logo;
+  final String team2Logo;
+  final String score;
 
-  FinishedMatchCard({
+  const FinishedMatchCard({
+    Key? key,
     required this.league,
     required this.date,
-    required this.team1,
-    required this.team2,
-    required this.score1,
-    required this.score2,
-    required this.imageUrl1,
-    required this.imageUrl2,
-  });
+    required this.team1Logo,
+    required this.team2Logo,
+    required this.score,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
           children: [
-            Text(league, style: TextStyle(fontSize: 16)),
-            Text(date, style: TextStyle(fontSize: 14, color: Colors.grey)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(league, style: TextStyle(fontSize: 16)),
+                Text(date, style: TextStyle(fontSize: 16)),
+              ],
+            ),
+            SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.network(team1Logo, height: 40),
+                SizedBox(width: 20),
+                Text(score,
+                    style:
+                        TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                SizedBox(width: 20),
+                Image.network(team2Logo, height: 40),
+              ],
+            ),
           ],
         ),
-        Spacer(),
-        Image.network(imageUrl1, height: 50),
-        SizedBox(width: 8),
-        Text(score1,
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-        Text(':', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-        Text(score2,
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-        SizedBox(width: 8),
-        Image.network(imageUrl2, height: 50),
-      ],
-    );
-  }
-}
-
-class MatchStats extends StatelessWidget {
-  final String stat1;
-  final String stat2;
-  final String label;
-
-  MatchStats({
-    required this.stat1,
-    required this.stat2,
-    required this.label,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(stat1, style: TextStyle(fontSize: 16)),
-          Text(label, style: TextStyle(fontSize: 16, color: Colors.grey)),
-          Text(stat2, style: TextStyle(fontSize: 16)),
-        ],
       ),
     );
   }
