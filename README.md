@@ -1,4 +1,6 @@
-# livescoreball {THIS APP JUST AN UI NOT WORKING PROPERLY}
+# LIVE_SCORE_BALLZ
+
+**Note: This app is just a UI and does not work properly.**
 
 <p align="center">
   <img src="https://github.com/rozalyne/livescoreball/assets/67235972/ba0d3157-00f5-44db-8580-360263097822" alt="Image 1" width="45%" />
@@ -17,7 +19,7 @@ The aim is to create a live score tracking app for sports enthusiasts.
 Before running the app, ensure you have Flutter installed. For installation instructions,
 refer to the [official Flutter documentation](https://flutter.dev/docs/get-started/install).
 
-## Getting Started
+## Setup
 
 Follow these steps to set up and update the project:
 
@@ -41,10 +43,9 @@ Follow these steps to set up and update the project:
     flutter pub upgrade
     ```
 
-This will launch the app in debug mode.
-
 ## Features
-- This app is just an  
+
+- **UI Only**: This app is just a user interface.
 - Live score updates for multiple sports.
 - Match schedules and fixtures.
 - Detailed match statistics.
@@ -54,8 +55,9 @@ This will launch the app in debug mode.
 
 - Flutter
 - Dart
-- VSCODE
-- ChatGPT OPENAI
+- VSCode
+- ChatGPT OpenAI
+
 ## Contributors
 
 - [Ricky Erlangga Handoko / Rozalyne](https://github.com/rozalyne/)
