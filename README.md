@@ -1,4 +1,4 @@
-# livescoreball
+# livescoreball {THIS APP JUST AN UI NOT WORKING PROPERLY}
 
 <p align="center">
   <img src="https://github.com/rozalyne/livescoreball/assets/67235972/ba0d3157-00f5-44db-8580-360263097822" alt="Image 1" width="45%" />
@@ -44,7 +44,7 @@ Follow these steps to set up and update the project:
 This will launch the app in debug mode.
 
 ## Features
-
+- This app is just an  
 - Live score updates for multiple sports.
 - Match schedules and fixtures.
 - Detailed match statistics.
@@ -54,7 +54,8 @@ This will launch the app in debug mode.
 
 - Flutter
 - Dart
-
+- VSCODE
+- ChatGPT OPENAI
 ## Contributors
 
 - [Ricky Erlangga Handoko / Rozalyne](https://github.com/rozalyne/)
