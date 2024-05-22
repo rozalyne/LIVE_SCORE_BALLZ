@@ -21,56 +21,21 @@ Follow these steps to set up and update the project:
     git clone https://github.com/rozalyne/livescoreball.git
     ```
 
-    <details>
-    <summary>Copy</summary>
-
-    ```sh
-    git clone <repository_url>
-    ```
-
-    </details>
-
 2. Navigate to the project directory:
     ```sh
     cd livescoreball
     ```
-
-    <details>
-    <summary>Copy</summary>
-
-    ```sh
-    cd livescoreball
-    ```
-
-    </details>
 
 3. Check for outdated dependencies:
     ```sh
     flutter pub outdated
     ```
 
-    <details>
-    <summary>Copy</summary>
-
-    ```sh
-    flutter pub outdated
-    ```
-
-    </details>
 
 4. Update dependencies:
     ```sh
     flutter pub upgrade
     ```
-
-    <details>
-    <summary>Copy</summary>
-
-    ```sh
-    flutter pub upgrade
-    ```
-
-    </details>
 
 This will launch the app in debug mode.
 
