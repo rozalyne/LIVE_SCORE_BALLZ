@@ -1,6 +1,3 @@
-Sure, here's the README.md file with the entire code combined:
-
-```markdown
 # livescoreball
 
 ## Description
@@ -15,34 +12,65 @@ The aim is to create a live score tracking app for sports enthusiasts.
 Before running the app, ensure you have Flutter installed. For installation instructions,
 refer to the [official Flutter documentation](https://flutter.dev/docs/get-started/install).
 
-### Installation
+## Getting Started
+
+Follow these steps to set up and update the project:
 
 1. Clone the repository:
     ```sh
     git clone <repository_url>
     ```
 
+    <details>
+    <summary>Copy</summary>
+
+    ```sh
+    git clone <repository_url>
+    ```
+
+    </details>
+
 2. Navigate to the project directory:
     ```sh
     cd livescoreball
     ```
+
+    <details>
+    <summary>Copy</summary>
+
+    ```sh
+    cd livescoreball
+    ```
+
+    </details>
 
 3. Check for outdated dependencies:
     ```sh
     flutter pub outdated
     ```
 
+    <details>
+    <summary>Copy</summary>
+
+    ```sh
+    flutter pub outdated
+    ```
+
+    </details>
+
 4. Update dependencies:
     ```sh
     flutter pub upgrade
     ```
 
-### Running the App
+    <details>
+    <summary>Copy</summary>
 
-To run the app, execute the following command:
-```sh
-flutter run
-```
+    ```sh
+    flutter pub upgrade
+    ```
+
+    </details>
 
 This will launch the app in debug mode.
 
@@ -65,6 +93,3 @@ This will launch the app in debug mode.
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-```
-
-Feel free to use this template for your project's README.md file. Let me know if you need further assistance!
