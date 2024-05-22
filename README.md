@@ -18,7 +18,7 @@ Follow these steps to set up and update the project:
 
 1. Clone the repository:
     ```sh
-    git clone <repository_url>
+    git clone [<repository_url>](https://github.com/rozalyne/livescoreball.git)
     ```
 
     <details>
