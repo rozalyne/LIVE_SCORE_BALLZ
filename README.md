@@ -32,7 +32,7 @@ Follow these steps to set up and update the project:
     ```sh
     cd livescoreball
     ```
-
+  JALANKAN DI TERMINAL VSCODE
 3. Check for outdated dependencies:
     ```sh
     flutter pub outdated
