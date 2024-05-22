@@ -1,22 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(LiveScoreApp());
-}
-
-class LiveScoreApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Live Score',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: LiveScoreScreen(),
-    );
-  }
-}
-
 class LiveScoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
