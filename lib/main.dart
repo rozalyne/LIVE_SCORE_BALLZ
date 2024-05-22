@@ -303,7 +303,7 @@ class LiveScoreScreen extends StatelessWidget {
                       TextSpan(
                           text: '2', style: TextStyle(color: Colors.green)),
                       TextSpan(text: ' : '),
-                      TextSpan(text: '0'),
+                      TextSpan(text: '1'),
                     ],
                   ),
                 ),
