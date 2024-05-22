@@ -99,7 +99,13 @@ class _MatchListScreenState extends State<MatchListScreen> {
                     ),
                     SizedBox(height: 10),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LiveScoreScreen()),
+                        );
+                      },
                       child: Text('Live'),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
@@ -122,15 +128,15 @@ class _MatchListScreenState extends State<MatchListScreen> {
                 Icon(Icons.arrow_forward),
               ],
             ),
-            SizedBox(height: 1),
+            SizedBox(height: 10),
             Expanded(
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
                     FinishedMatchCard(
-                      league: 'Champions League ',
-                      date: 'Kemarin',
+                      league: 'Champions League',
+                      date: 'Yesterday',
                       team1Logo: 'assets/images/juventus.png',
                       team2Logo: 'assets/images/psg.png',
                       score: '1 : 0',
@@ -243,6 +249,121 @@ class FinishedMatchCard extends StatelessWidget {
                 SizedBox(width: 20),
                 Image.asset(team2Logo, height: 40),
               ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class LiveScoreScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text('Champions League'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Yesterday',
+              style: TextStyle(fontSize: 16, color: Colors.grey),
+            ),
+            SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    Image.asset(
+                      'assets/images/arsenal.png',
+                      width: 50,
+                      height: 50,
+                    ),
+                    Text('Persib'),
+                  ],
+                ),
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                    children: [
+                      TextSpan(
+                          text: '2', style: TextStyle(color: Colors.green)),
+                      TextSpan(text: ' : '),
+                      TextSpan(text: '0'),
+                    ],
+                  ),
+                ),
+                Column(
+                  children: [
+                    Image.asset(
+                      'assets/images/chelsea.png',
+                      width: 50,
+                      height: 50,
+                    ),
+                    Text('Chelsea'),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            ListTile(
+              leading: CircleAvatar(
+                backgroundImage: AssetImage(
+                  'assets/images/david.png',
+                ),
+              ),
+              title: Text('Top Player'),
+              subtitle: Text('David da Silva'),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Match Stats',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Expanded(
+              child: ListView(
+                children: [
+                  ListTile(
+                    title: Text('Shots'),
+                    trailing: Text('15'),
+                  ),
+                  ListTile(
+                    title: Text('Shots on target'),
+                    trailing: Text('7'),
+                  ),
+                  ListTile(
+                    title: Text('Possession'),
+                    trailing: Text('60%'),
+                  ),
+                  ListTile(
+                    title: Text('Fouls'),
+                    trailing: Text('12'),
+                  ),
+                  ListTile(
+                    title: Text('Corners'),
+                    trailing: Text('5'),
+                  ),
+                  ListTile(
+                    title: Text('Offsides'),
+                    trailing: Text('3'),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
