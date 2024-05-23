@@ -32,7 +32,6 @@ Follow these steps to set up and update the project:
     ```sh
     cd livescoreball
     ```
-
 3. Check for outdated dependencies:
     ```sh
     flutter pub outdated
