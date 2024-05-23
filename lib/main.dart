@@ -94,7 +94,7 @@ class _MatchListScreenState extends State<MatchListScreen> {
                           ),
                         ),
                         SizedBox(width: 20),
-                        Image.asset('assets/images/chelsea.png', height: 40),
+                        Image.asset('assets/images/crusades.png', height: 40),
                       ],
                     ),
                     SizedBox(height: 10),
